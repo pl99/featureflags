@@ -1,0 +1,14 @@
+server:
+  port: 59004
+togglz:
+  console:
+    enabled: true
+    path: /togglz-console
+    secured: false
+    use-management-port: false
+  features:
+    employee:
+      feature: true
+employee:
+  feature: true
+
