@@ -1,14 +1,26 @@
 server:
   port: 59004
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 togglz:
   console:
     enabled: true
     path: /togglz-console
     secured: false
     use-management-port: false
+  id: togglz # The endpoint identifier.
+  enabled: true # Enable actuator endpoint.
+  sensitive: true # Indicates if the endpoint exposes sensitive information.
   features:
     employee:
       feature: true
+    FOO:
+      enabled: true
+    BAR:
+      enabled: false
 employee:
   feature: true
 
