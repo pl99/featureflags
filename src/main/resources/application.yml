@@ -13,14 +13,5 @@ togglz:
     use-management-port: false
   id: togglz # The endpoint identifier.
   enabled: true # Enable actuator endpoint.
-  sensitive: true # Indicates if the endpoint exposes sensitive information.
-  features:
-    employee:
-      feature: true
-    FOO:
-      enabled: true
-    BAR:
-      enabled: false
-employee:
-  feature: true
+#  sensitive: true # Indicates if the endpoint exposes sensitive information.
 

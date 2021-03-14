@@ -1,18 +1,18 @@
 package ru.advantum.kotin.featureflags.config;
 
 import org.togglz.core.Feature;
-import org.togglz.core.activation.SystemPropertyActivationStrategy;
-import org.togglz.core.annotation.ActivationParameter;
 import org.togglz.core.annotation.DefaultActivationStrategy;
-import org.togglz.core.annotation.EnabledByDefault;
 import org.togglz.core.annotation.Label;
 import org.togglz.core.context.FeatureContext;
-
-public enum MyFeatures implements Feature {
-//    https://www.baeldung.com/spring-togglz
-
 /*
 Other types of activation strategies provided by the Togglz library are:
+
+    @EnabledByDefault
+    @DefaultActivationStrategy(id = SystemPropertyActivationStrategy.ID, parameters =
+            { @ActivationParameter(name = SystemPropertyActivationStrategy.PARAM_PROPERTY_NAME,
+            value = "tariff.feature"),
+            @ActivationParameter(name = SystemPropertyActivationStrategy.PARAM_PROPERTY_VALUE, value = "true") })
+
 
 UsernameActivationStrategy – allows the feature to be active for a specified list of users
 UserRoleActivationStrategy – the current user's role is used to determine the state of a feature
@@ -22,14 +22,17 @@ ScriptEngineActivationStrategy – allows the use of a custom script written in 
 ServerIpActivationStrategy – a feature is enabled based on IP addresses of the server
  */
 
-    @Label("Employee Management Feature")
-    @EnabledByDefault
-    @DefaultActivationStrategy(id = SystemPropertyActivationStrategy.ID, parameters =
-            { @ActivationParameter(name = SystemPropertyActivationStrategy.PARAM_PROPERTY_NAME, value = "employee.feature"),
-            @ActivationParameter(name = SystemPropertyActivationStrategy.PARAM_PROPERTY_VALUE, value = "true") })
-    EMPLOYEE_MANAGEMENT_FEATURE;
+public enum RouteFeatures implements Feature {
+    @Label("Азбука вкуса маршрутизация")
+    ROUTE_ALPHABET_OF_TASTY,
+    @Label("Метро маршрутизация")
+    @DefaultActivationStrategy(id = "RouteFeatures.ROUTE_METRO", parameters = {
+
+    })
+    ROUTE_METRO;
 
     public boolean isActive() {
         return FeatureContext.getFeatureManager().isActive(this);
     }
+
 }
