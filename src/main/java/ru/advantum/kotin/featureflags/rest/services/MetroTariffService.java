@@ -4,10 +4,10 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("dixi")
-public class Dixi03TariffService implements TariffService {
+@Profile("metro")
+public class MetroTariffService implements TariffService {
     @Override
     public String calcTariff() {
-        return "dixi03";
+        return "Metro";
     }
 }

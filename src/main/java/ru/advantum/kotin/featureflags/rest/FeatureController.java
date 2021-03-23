@@ -22,9 +22,11 @@ public class FeatureController {
 
     @PostMapping("tariff")
     public String doSomethingg() {
-        String collect = services.stream().map(TariffService::calcTariff)
-                .map(it->it + ";\n")
-                .collect(Collectors.joining());
+        String collect = services.stream()
+                .limit(1)
+                .map(TariffService::calcTariff)
+                .collect(Collectors.joining())
+                ;
         return collect;
     }
 }

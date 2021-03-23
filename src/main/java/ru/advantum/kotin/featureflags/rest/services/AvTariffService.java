@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("AV")
-public class Av02TariffService implements TariffService {
+public class AvTariffService implements TariffService {
     @Override
     public String calcTariff() {
-        return "AV02";
+        return "AV";
     }
 }
